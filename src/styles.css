@@ -1,0 +1,203 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 20px;
+  background: linear-gradient(to right, #1e4d87, #acd2ff);
+}
+
+.img-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
+  height: 250px;
+  width: 250px;
+}
+
+
+.gif-item {
+  flex: 1;
+  text-align: center;
+  max-width: 70%;
+  max-height: 70%;
+  border-radius: 20px;
+}
+
+
+
+
+img {
+  width: 70%;
+  height: auto;
+  margin-top: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}
+
+.weather-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  gap: 20px;
+}
+
+.weather-location {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.weather-each-day,
+.hourly-data {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7 items per row */
+  gap: 5px;
+  overflow-x: hidden; /* Hide extra items */
+  width: 100%;
+  margin-bottom: 20px;
+  position: relative; /* Ensure the buttons are positioned relative to this container */
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+.weather-day,
+.hourly-data-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; /* Ensures equal spacing */
+  text-align: center;
+  padding: 10px;
+  border-radius: 20px;
+  background: #f9f9f9;
+}
+.weather-day:hover {
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+.weather-day img,
+.hourly-data-item img {
+  margin-top: auto; /* Pushes the image to the bottom */
+  height: 50px; /* Ensures all icons have the same height */
+  width: 50px; /* Ensures uniform size */
+}
+
+.prev-btn, .next-btn {
+  position: absolute;
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust for exact centering */
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  z-index: 10;
+}
+
+.prev-btn {
+  left: 0px;
+}
+
+.next-btn {
+  right: 0px;
+}
+
+/* Hide the previous button when the first item is in view */
+.prev-btn:disabled, .next-btn:disabled {
+  background-color: rgba(0, 0, 0, 0.2);
+  cursor: not-allowed;
+}
+
+.chart-container {
+  width: 100%;
+  height: 250px; /* Adjust the height */
+  margin: auto;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; /* Ensure content is stacked vertically */
+  background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+  border-radius: 10px; /* Rounded corners */
+  padding: 10px; /* Padding inside the container */
+}
+
+.eachDay-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.current-hour {
+  background-color: #ffeb3b; /* Highlight the current hour */
+  border: 2px solid #fbc02d;
+}
+
+.selected-day {
+  background-color: #90caf9; /* Highlight the selected day */
+  border: 2px solid #42a5f5;
+}
+
+
+
+/* Modern styling for search input and button */
+#searchInput {
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  width: 200px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+#searchButton {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  background-color: #1e4d87;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#searchButton:hover {
+  background-color: #163a63;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .weather-each-day,
+  .hourly-data {
+    grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+  }
+
+  .prev-btn, .next-btn {
+    top: auto;
+    bottom: 10px;
+    transform: translateY(0);
+  }
+
+  .prev-btn {
+    left: 10px;
+  }
+
+  .next-btn {
+    right: 10px;
+  }
+}
